@@ -42,9 +42,8 @@ jobs:
       - run:
           name: Convert Source to Metadata format
           command: |
-             #Convert source to metadata format
+           #Convert source to metadata format
            sfdx force:source:convert -r force-app -d $DEPLOYDIR
-    
       - run:
           name: Deploy to Target Deployment Org
           command: |
