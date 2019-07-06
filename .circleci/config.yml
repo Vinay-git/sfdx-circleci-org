@@ -40,6 +40,12 @@ jobs:
             #Authorize target org
             sfdx force:auth:jwt:grant --instanceurl https://login.salesforce.com  --clientid $CONSUMER_KEY --jwtkeyfile assets/server.key --username $USER_NAME --setalias UAT
       - run:
+          name: Convert Source to Metadata format
+          command: |
+             #Convert source to metadata format
+           sfdx force:source:convert -r force-app -d $DEPLOYDIR
+    
+      - run:
           name: Deploy to Target Deployment Org
           command: |
             #Deploy to target deployment org and run unit tests. 
