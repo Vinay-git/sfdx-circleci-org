@@ -52,3 +52,12 @@ jobs:
             
             #Example shows how to run a check only deploy.
             #sfdx force:mdapi:deploy --checkonly --wait 10 --deploydir $DEPLOYDIR --targetusername UAT --testlevel $TESTLEVEL
+workflows:
+  version: 2
+  validate:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - master            
