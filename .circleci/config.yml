@@ -43,10 +43,8 @@ jobs:
           name: Deploy to Target Deployment Org
           command: |
             #Deploy to target deployment org and run unit tests. 
-            #sfdx force:mdapi:deploy --wait 10 --deploydir $DEPLOYDIR --targetusername UAT --testlevel $TESTLEVEL
             sfdx force:source:deploy --wait 10 -p force-app/main/default --targetusername UAT --testlevel $TESTLEVEL
-            #Example shows how to run a check only deploy.
-            #sfdx force:mdapi:deploy --checkonly --wait 10 --deploydir $DEPLOYDIR --targetusername UAT --testlevel $TESTLEVEL
+          
 workflows:
   version: 2
   validate:
