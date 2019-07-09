@@ -29,6 +29,12 @@ jobs:
             # Install the cli
             ./sfdx/install
             sfdx
+       - run:
+          name: Update CLI
+          command: |
+            # update the cli
+            ./sfdx/install
+            sfdx update     
       - run:
           name: Decrypt server key
           command: |
